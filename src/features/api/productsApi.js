@@ -1,14 +1,13 @@
-import { apiSlice } from "./apiSlice";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// RTK Query endpoint for products
-
-export const productsApi = apiSlice.injectEndpoints({
+export const productsApi = createApi({
+    reducerPath: 'productsApi',
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.escuelajs.co/api/v1/' }),
     endpoints: (builder) => ({
-        // get all products
-        getproducts: builder.query({
-            query: () => 'products'
-        })
-    })
-})
+        getProducts: builder.query({
+            query: () => 'products',
+        }),
+    }),
+});
 
 export const { useGetProductsQuery } = productsApi;

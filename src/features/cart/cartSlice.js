@@ -40,7 +40,7 @@ const cartSlice = createSlice({
             const item = state.find((i) => i.id === itemId);
 
             if(item) {
-                item.quantity =- 1;
+                item.quantity -= 1;
 
                 // remove item if quantity becomes 0
                 if (item.quantity <= 0) {
@@ -78,7 +78,7 @@ const cartSlice = createSlice({
 //   }
 
 // Export actions to use in components
-const { addToCart, removeFromCart, clearCart, decrementQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, decrementQuantity } = cartSlice.actions;
 
 // Export reducer to include in store
 export default cartSlice.reducer;
